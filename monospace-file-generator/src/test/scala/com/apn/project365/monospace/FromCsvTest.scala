@@ -43,7 +43,7 @@ class FromCsvTest extends FunSuite with ShouldMatchers{
         |Photoshop:
         |
         |
-        |#apnphotographia#blog#articles#pending #pending""".stripMargin)
+        |#apnphotographia#blog#project365_year1#pending #pending""".stripMargin)
 
   }
 }

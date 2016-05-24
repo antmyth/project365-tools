@@ -1,7 +1,10 @@
 package com.apn.project365.monospace
 
 
-class FromCsv {
+object FromCsv {
+  def  main(args: Array[String]) {
+    println("running")
+  }
 }
 
 case class Project365Entry(status:String, number: Int, fn:String, date:String, month: String,
@@ -32,5 +35,6 @@ object MonospaceFileFormat{
 }
 
 object Config{
-  val baseTag = "#apnphotographia#blog#articles#"
+  val baseTag = "#apnphotographia#blog#project365_year1#"
+  val baseDir = "/Users/antonio.nascimento/Dropbox/Apps/Monospace"
 }
