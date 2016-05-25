@@ -32,6 +32,7 @@ class FromCsvTest extends FunSuite with ShouldMatchers{
     result should be(
       """# #project365_year1 [day 001] Turnstiles at Chicago's "L"
         |
+        |
         |-- Gear
         |Fujifilm X-T1
         |FUJINON XF18-135mm F3.5-5.6 R LM OIS WR
@@ -40,10 +41,11 @@ class FromCsvTest extends FunSuite with ShouldMatchers{
         |
         |-- Post
         |Lightroom :
-        |Photoshop:
+        |Photoshop :
         |
         |
-        |#apnphotographia#blog#project365_year1#pending #pending""".stripMargin)
+        |#apnphotographia#project365_year1#pending #pending
+        |""".stripMargin)
 
   }
 }
