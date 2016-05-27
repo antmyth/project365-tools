@@ -17,13 +17,13 @@ object FromCsv {
       val entries = CSVReader[Project365Entry].readCSVFromString(l).foreach { entry =>
         val content = MonospaceFileFormat.monofile(entry)
         println(s"Start generating ${Config.baseDir}project365_year1-day-${entry.fn}.txt")
-        println(content)
-//        val f = new File(s"${Config.baseDir}project365_year1-day-${entry.fn}.txt")
-//        f.createNewFile()
-//        f.setWritable(true)
-//        val writer = new PrintWriter(f)
-//        writer.write(content)
-//        writer.close()
+//        println(content)
+        val f = new File(s"${Config.baseDir}project365_year1-day-${entry.fn}.txt")
+        f.createNewFile()
+        f.setWritable(true)
+        val writer = new PrintWriter(f)
+        writer.write(content)
+        writer.close()
         println(s"finished generating ${Config.baseDir}project365_year1-day-${entry.fn}.txt")
       }
     }
