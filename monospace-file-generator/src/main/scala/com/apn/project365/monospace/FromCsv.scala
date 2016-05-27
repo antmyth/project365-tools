@@ -2,6 +2,7 @@ package com.apn.project365.monospace
 
 import java.io.{File, PrintWriter}
 
+import com.typesafe.config.ConfigFactory
 import purecsv.unsafe.CSVReader
 
 import scala.io.Source
@@ -16,12 +17,13 @@ object FromCsv {
       val entries = CSVReader[Project365Entry].readCSVFromString(l).foreach { entry =>
         val content = MonospaceFileFormat.monofile(entry)
         println(s"Start generating ${Config.baseDir}project365_year1-day-${entry.fn}.txt")
-        val f = new File(s"${Config.baseDir}project365_year1-day-${entry.fn}.txt")
-        f.createNewFile()
-        f.setWritable(true)
-        val writer = new PrintWriter(f)
-        writer.write(content)
-        writer.close()
+        println(content)
+//        val f = new File(s"${Config.baseDir}project365_year1-day-${entry.fn}.txt")
+//        f.createNewFile()
+//        f.setWritable(true)
+//        val writer = new PrintWriter(f)
+//        writer.write(content)
+//        writer.close()
         println(s"finished generating ${Config.baseDir}project365_year1-day-${entry.fn}.txt")
       }
     }
@@ -58,7 +60,7 @@ object MonospaceFileFormat{
 }
 
 object Config{
-  val baseTag = "#apnphotographia#project365_year1#"
-//  val baseDir = "files/"
-  val baseDir = "/Users/antonio.nascimento/Dropbox/Apps/Monospace/"
+  val config = ConfigFactory.load()
+  val baseTag = config.getString("base.tag")
+  val baseDir = config.getString("file.destination.dir")
 }
